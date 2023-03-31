@@ -1,0 +1,207 @@
+$primary-color: #000000;
+$secondary-color: #3F4E65;
+$interactive-color: #FFC85E;
+
+.product {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: $secondary-color;
+
+    &__img {
+        flex: 0 1 50%;
+        padding-right: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+
+        img {}
+    }
+
+    &__text {
+        flex: 0 1 50%;
+    }
+
+    &__stock {
+        color: #1FD85D;
+        font-weight: 500;
+        line-height: 18px;
+        margin-bottom: 10px;
+    }
+
+    &__name {
+        color: $primary-color;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 45px;
+        margin-bottom: 10px;
+
+        span {
+            font-weight: 800;
+        }
+    }
+
+    &__size {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 12px;
+        line-height: 16px;
+
+        img {
+            margin-right: 5px;
+        }
+    }
+
+    &__order {
+        display: flex;
+        align-items: center;
+    }
+
+    &__price {
+        font-weight: 800;
+        font-size: 30px;
+        color: $primary-color;
+        line-height: 39px;
+        margin-right: 40px;
+    }
+
+    &__count {
+        display: flex;
+        align-items: center;
+        margin-right: 40px;
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 34px;
+            height: 23px;
+            background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
+            border-radius: 1000px;
+        }
+
+        .number {
+            margin: 0px 15px;
+        }
+    }
+
+    &__btn {
+        width: 184px;
+    }
+
+    &__client {
+        height: 77px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-bottom: 35px;
+    }
+
+    &__share {
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 26px;
+        background-color: white;
+        box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.07);
+        border-radius: 10px;
+    }
+
+    &__disk {
+        height: 100%;
+        line-height: 18px;
+        width: 55%;
+        text-align: center;
+        padding: 21px 35px;
+        background-color: white;
+        box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.07);
+        border-radius: 10px;
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    &__download {
+        font-weight: 700;
+        line-height: 17px;
+        cursor: pointer;
+        height: 100%;
+        width: 186px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            margin-left: 10px;
+        }
+    }
+
+    &__info {
+        p {
+            font-weight: 300;
+            line-height: 21px;
+            margin-bottom: 5px;
+
+            span {
+                font-weight: 500;
+                color: $primary-color;
+            }
+        }
+    }
+
+    &__description {
+        margin-top: 30px;
+        .title{
+            display: flex;
+            color: $primary-color;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            img{
+                margin-left: 5px;
+            }
+        }
+
+        .list {
+            margin-top: 15px ;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed rgba(63, 78, 101, 0.3);
+        }
+    }
+
+    &__properties {
+        margin-top: 20px;
+        .title{
+            display: flex;
+            color: $primary-color;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            img{
+                margin-left: 5px;
+            }
+        }
+
+        .list {
+            margin-top: 15px ;
+            p {
+                font-weight: 300;
+                line-height: 21px;
+                margin-bottom: 5px;
+    
+                span {
+                    font-weight: 500;
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+
+
+
+}

@@ -1,0 +1,30 @@
+$primary-color: #000000;
+$secondary-color: #3F4E65;
+$interactive-color: #FFC85E;
+
+.aside{
+    width: 238px;
+    &__title{
+        color: $primary-color;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: uppercase;
+    }
+    &__price{
+        margin-top: 10px;
+    }
+    &__brend{
+        margin-top: 30px;
+    }
+    &__filter{
+        margin-top: 10px;
+    }
+    &__submit{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+        margin-bottom: 40px;
+    }
+    
+}

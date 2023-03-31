@@ -1,0 +1,44 @@
+$primary-color: #000000;
+$secondary-color: #3F4E65;
+$interactive-color: #FFC85E;
+
+.brend {
+    margin-top: 10px;
+    border-bottom: 1px dashed rgba(63, 78, 101, 0.3);
+    &__title {
+        margin-bottom: 15px;
+        font-weight: 300;
+        color: $secondary-color;
+        line-height: 21px;
+    }
+
+    &__list {
+        color: $secondary-color;
+        line-height: 21px;
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item {
+        input{
+            cursor: pointer;
+        }
+        label{
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    }
+
+    &__show{
+        cursor: pointer;
+        margin: 15px 0px 20px 0px;
+        font-weight: 500;
+        font-size: 12px;
+    }
+    &__img{
+        margin-left: 5px;
+        position: relative;
+        top:8px;
+    }
+}

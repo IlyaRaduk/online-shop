@@ -1,0 +1,43 @@
+$primary-color: #000000;
+$secondary-color: #3F4E65;
+$interactive-color: #FFC85E;
+
+.price {
+
+    &__title {
+        margin-bottom: 15px;
+        font-weight: 300;
+        color: $secondary-color;
+        line-height: 21px;
+
+        span {
+            color: $primary-color;
+            font-weight: 500;
+        }
+    }
+
+    &__counts {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin: 0px 10px;
+        }
+    }
+
+    &__count {
+        height: 23px;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 15px;
+        color: $primary-color;
+        background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
+        border-radius: 1000px;
+    }
+
+}

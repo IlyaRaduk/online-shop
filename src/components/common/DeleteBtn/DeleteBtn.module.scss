@@ -1,0 +1,12 @@
+$interactive-color:#FFC85E;
+
+.delete{
+    margin-left: 10px;
+    background-color: $interactive-color;
+    border-radius: 50%;
+    min-width: 59px;
+    height: 59px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

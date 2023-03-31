@@ -1,0 +1,37 @@
+$primary-color: #000000;
+$secondary-color: #3F4E65;
+$interactive-color: #FFC85E;
+
+.basket {
+    margin-bottom: 100px;
+
+    &__title {
+        color: $primary-color;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 48px;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+    }
+    .product{
+        padding: 50px 0px;
+        border-top: 1px dashed rgba(63, 78, 101, 0.3);
+    }
+    &__order {
+        border-top: 1px dashed rgba(63, 78, 101, 0.3);
+        padding-top: 50px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__btn {
+        width: 192px;
+    }
+
+    &__price {
+        color: $primary-color;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 39px;
+    }
+}

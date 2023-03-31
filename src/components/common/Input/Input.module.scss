@@ -1,0 +1,26 @@
+$interactive-color: #FFC85E;
+
+.input {
+    height: 59px;
+    background: #EDEDED;
+    border-radius: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px 20px 20px;
+
+    input {
+        min-width: 100px;
+        background-color: rgba($color: #000000, $alpha: 0);
+    }
+
+    &__img {
+        width: 39px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 39px;
+        border-radius: 50%;
+        background-color: $interactive-color;
+    }
+}

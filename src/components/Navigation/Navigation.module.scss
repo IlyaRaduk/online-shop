@@ -1,0 +1,42 @@
+$primary-color: #000000;
+$secondary-color: #3F4E65;
+
+.nav{
+    margin: 45px 0px 50px 0px;
+    &__list{
+        display: flex;
+    }
+
+    &__item{
+        position: relative;
+        font-weight: 300;
+        line-height: 17px;
+        color: $secondary-color;
+        opacity: 0.5;
+        padding: 0px 10px 0px 10px;
+        border-right: 1px dashed rgba(63, 78, 101, 0.3);
+        &:first-child {
+            padding: 0px 10px 0px 0px;
+        }
+        &:last-child {
+            padding: 0px 0px 0px 10px;
+            border-right: none;
+        }
+    }
+
+    &__itemActive{
+        position: relative;
+        font-weight: 300;
+        line-height: 17px;
+        color: $secondary-color;
+        padding: 0px 10px 0px 10px;
+        border-right: 1px dashed rgba(63, 78, 101, 0.3);
+        &:first-child {
+            padding: 0px 10px 0px 0px;
+        }
+        &:last-child {
+            padding: 0px 0px 0px 10px;
+            border-right: none;
+        }
+    }
+}
