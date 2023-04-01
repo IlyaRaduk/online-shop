@@ -23,26 +23,28 @@ const BasketItem: FC<IProductItemProps> = ({ product }) => {
                     <p> {product.size}</p>
                 </div>
                 <p className={style.product__title}>
-                   {product.brend}{' ' + product.name}
+                    {product.brend}{' ' + product.name}
                 </p>
                 <div className={style.product__description}>
                     {product.description}
                 </div>
             </div>
-            <div className={style.product__count}>
-                <div className={style.countContainer}>
-                <button>-</button>
-                <div className={style.number}>
-                    1
+            <div className={style.orderContainer}>
+                <div className={style.product__count}>
+                    <div className={style.countContainer}>
+                        <button>-</button>
+                        <div className={style.number}>
+                            1
+                        </div>
+                        <button>+</button>
+                    </div>
                 </div>
-                <button>+</button>
+                <div className={style.product__price}>
+                    {product.price}{' ' + '₸'}
                 </div>
-            </div>
-            <div className={style.product__price}>
-                {product.price}{' '+'₸'}
-            </div>
-            <div className={style.product__delete}>
-                <DeleteBtn />
+                <div className={style.product__delete}>
+                    <DeleteBtn />
+                </div>
             </div>
         </div>
     )

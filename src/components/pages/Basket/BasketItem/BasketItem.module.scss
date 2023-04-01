@@ -7,12 +7,13 @@ $interactive-color: #FFC85E;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 
     &__img {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 281px;
+        min-width: 281px;
         margin-right: 20px;
         height: 100%;
         img {
@@ -52,14 +53,17 @@ $interactive-color: #FFC85E;
         font-size: 12px;
         line-height: 18px;
     }
-
+    .orderContainer{
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
     &__count {
         flex: 1;
         display: flex;
         justify-content: flex-end;
-
+        padding: 0px 3%;
         .countContainer {
-            padding: 0px 44px;
             max-width: 200px;
             display: flex;
             justify-content: center;
@@ -82,15 +86,49 @@ $interactive-color: #FFC85E;
     }
 
     &__price {
-        width: 200px;
-        padding: 0px 44px;
+        min-width: 150px;
+        padding: 0px 3%;
         color: $primary-color;
         font-weight: 700;
         font-size: 30px;
         line-height: 39px;
     }
-
-    &__delete {
-        padding-left: 44px;
-    }
 }
+
+    @media(max-width:1200px){
+        .product {
+            flex-direction: column;
+            height: auto;
+
+            &__title {
+                max-height:max-content;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 24px;
+                overflow: auto;
+                text-overflow:unset;
+            }
+            &__description {
+                max-height: max-content;
+            }
+
+            .orderContainer{
+                margin-top: 20px;
+                width: 100%;
+                max-width: 480px;
+                justify-content: space-between;
+            }
+            &__count {
+                flex: 0;
+                padding: 0;
+
+            }
+            &__price {
+                padding: 0;
+                min-width: 0px;
+            }
+            &__delete{
+                margin-left: 0px;
+            }
+        }
+    }

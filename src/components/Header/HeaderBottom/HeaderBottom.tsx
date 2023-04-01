@@ -3,8 +3,10 @@ import { FC } from "react";
 import img_logotip from './../../../assets/img/logotip.svg';
 import Button from '../../common/Button/Button';
 import img_catalog from './../../../assets/img/catalog.svg';
+import img_catalog_mob from './../../../assets/img/catalog_mob.svg';
 import Input from '../../common/Input/Input';
 import img_search from './../../../assets/img/search.svg';
+import img_search_mob from './../../../assets/img/search_mob.svg';
 import img_operator from './../../../assets/img/operator.png';
 import img_download from './../../../assets/img/download.svg';
 import img_cart from './../../../assets/img/cart.svg';
@@ -19,13 +21,20 @@ const HeaderBottom: FC = () => {
         <div className={style.wrapper}>
             <div className="container">
                 <div className={style.header}>
+                    <div className={style.burger}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                     <div className={style.logotipe}>
                         <img src={img_logotip} alt="logotip" />
                     </div>
                     <div className={style.btn}>
                         <Button size='big' text='Каталог' img={img_catalog} />
                     </div>
-                    <Input value='' placeholder='Поиск...' img={img_search} handleChange={handleChange} />
+                    <div className={style.input}>
+                        <Input value='' placeholder='Поиск...' img={img_search} handleChange={handleChange} />
+                    </div>
                     <div className={style.callback}>
                         <div className={style.callback__content}>
                             <p className={style.callback__title}>
@@ -62,6 +71,16 @@ const HeaderBottom: FC = () => {
                         </div>
                     </div>
 
+                </div>
+                <div className={style.mobile__btn}>
+                    <button>
+                        <img src={img_catalog_mob} alt="catalog" />
+                        <p>Каталог</p>
+                    </button>
+                    <button>
+                        <img src={img_search_mob} alt="search" />
+                        <p>Поиск</p>
+                    </button>
                 </div>
 
             </div>

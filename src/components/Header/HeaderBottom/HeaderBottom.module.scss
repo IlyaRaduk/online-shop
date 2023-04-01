@@ -4,7 +4,6 @@ $interactive-color: #FFC85E;
 
 .wrapper {
     border-bottom: 1px solid rgba(63, 78, 101, 0.2);
-    border-top: 1px solid rgba(63, 78, 101, 0.2);
 }
 
 .header {
@@ -13,7 +12,8 @@ $interactive-color: #FFC85E;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-.btn{
+
+.btn {
     width: 195px;
 }
 
@@ -97,5 +97,182 @@ $interactive-color: #FFC85E;
         font-weight: 600;
         font-size: 14px;
         line-height: 21px;
+    }
+}
+
+.burger {
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 52px;
+    height: 52px;
+    border-radius: 1000px;
+    background-color: $interactive-color;
+
+    span {
+        position: absolute;
+        top: 0;
+        height: 2px;
+        width: 18px;
+        background-color: white;
+
+        &:nth-of-type(1) {
+            top: calc(50%);
+        }
+
+        &:nth-of-type(2) {
+            top: calc(50% - 6px);
+        }
+
+        &:nth-of-type(3) {
+            top: calc(50% + 6px);
+        }
+    }
+}
+
+.mobile__btn {
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(63, 78, 101, 0.2);
+    border-top: 1px solid rgba(63, 78, 101, 0.2);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: none;
+    align-items: center;
+
+    button {
+        color: $secondary-color;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 21px;
+        background-color: rgba($color: #000000, $alpha: 0);
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 50%;
+        display: flex;
+
+        &:first-child {
+            border-right: 1px dashed rgba(63, 78, 101, 0.2);
+        }
+    }
+
+    img {
+        margin-right: 6px;
+        color: #000000;
+    }
+}
+
+@media (max-width:1200px) {
+    .wrapper {
+        border: none;
+    }
+
+    .header {
+        padding: 0px 15px;
+    }
+
+    .logotipe {
+        margin-left: 5%;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .btn {
+        display: none;
+    }
+
+    .input {
+        display: none;
+    }
+
+    .callback {
+        display: none;
+    }
+
+    .mobile__btn {
+        display: flex;
+    }
+}
+
+@media(max-width:600px) {
+    .logotipe {
+        width: 97px;
+        height: 41px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .mobile__btn {
+        button {
+            font-size: 12px;
+            line-height: 15px;
+            height: 20px;
+        }
+    }
+
+    .burger {
+        width: 32px;
+        height: 32px;
+        span {
+            height: 1px;
+            width: 9px;
+            &:nth-of-type(1) {
+                top: calc(50%);
+            }
+
+            &:nth-of-type(2) {
+                top: calc(50% - 3px);
+            }
+
+            &:nth-of-type(3) {
+                top: calc(50% + 3px);
+            }
+        }
+    }
+
+    .cart {
+        cursor: pointer;
+        color: $secondary-color;
+        display: flex;
+        align-items: center;
+
+        &__img {
+            width: 32px;
+
+            img {
+                width: 32px;
+            }
+
+            position: relative;
+        }
+
+        &__count {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 17px;
+            height: 17px;
+            border: 3px solid white;
+            border-radius: 50%;
+            background-color: $interactive-color;
+            color: white;
+            font-weight: 700;
+            font-size: 10px;
+            line-height: 12px;
+        }
+
+        &__text {
+            display: none;
+        }
     }
 }

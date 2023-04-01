@@ -6,10 +6,14 @@ import HeaderBottom from './HeaderBottom/HeaderBottom';
 const Header: FC = () => {
     return (
         <header>
-            <div className='container'>
-                <HeaderTop/>
+            <div className={style.header__top}>
+                <div className='container'>
+                    <HeaderTop />
+                </div>
             </div>
-            <HeaderBottom/>
+            <div className={style.header__bottom}>
+                <HeaderBottom />
+            </div>
         </header>
     )
 }

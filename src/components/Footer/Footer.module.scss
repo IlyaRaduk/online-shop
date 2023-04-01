@@ -37,100 +37,286 @@ $interactive-color: #FFC85E;
     &__input {
         width: 280px;
     }
-}
 
-.menu {
-    margin-right: 95px;
-
-    &__title {
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 30px;
-        margin-bottom: 25px;
-    }
-
-    &__item{
-        cursor: pointer;
-        line-height: 21px;
-        margin-bottom: 20px;
+    &__btn {
+        display: none;
     }
 }
 
-.category {
-    margin-right: 95px;
-    &__title {
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 30px;
-        margin-bottom: 25px;
-    }
+.menuContainer {
+    display: flex;
+    width: 35%;
 
-    &__item{
-        cursor: pointer;
-        line-height: 21px;
-        margin-bottom: 20px;
-    }
-}
+    .menu {
+        margin-right: 17%;
 
-.download {
-    margin-right: 95px;
-    margin-right: 95px;
-    &__title {
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 30px;
-        margin-bottom: 25px;
-    }
-    &__contacts{
-        margin-top: 20px;
-        margin-bottom: 15px;
-    }
-    &__social{
-        img{
+        &__title {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 30px;
+            margin-bottom: 25px;
+        }
+
+        &__item {
             cursor: pointer;
-            margin-right: 10px;
+            line-height: 21px;
+            margin-bottom: 20px;
         }
     }
 
+    .category {
+
+        &__title {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 30px;
+            margin-bottom: 25px;
+        }
+
+        &__item {
+            cursor: pointer;
+            line-height: 21px;
+            margin-bottom: 20px;
+        }
+    }
 }
 
-.contacts {
-    &__title {
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 30px;
-        margin-bottom: 25px;
-    }
-    &__tel{
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 18px;
-        margin-bottom: 25px;
-        .number{
+.contactsContainer {
+    width: 35%;
+    display: flex;
+
+    .download {
+        margin-right: 17%;
+
+        &__title {
             font-weight: 600;
-            line-height: 21px;
-            margin-bottom: 5px;
+            font-size: 20px;
+            line-height: 30px;
+            margin-bottom: 25px;
         }
-        button{
-            margin-top: 5px;
-            font-size: 10px;
-            color: white;
-            background-color: rgba($color: #000000, $alpha: 0);
-            text-decoration: underline;
+
+        &__contacts {
+            margin-top: 20px;
+            margin-bottom: 15px;
         }
+
+        &__social {
+            img {
+                cursor: pointer;
+                margin-right: 10px;
+            }
+        }
+
     }
-    &__mail{
-        margin-bottom: 25px;
-        font-weight: 300;
-        font-size: 12px;
-        a{
+
+    .contacts {
+        &__title {
             font-weight: 600;
+            font-size: 20px;
+            line-height: 30px;
+            margin-bottom: 25px;
+        }
+
+        &__tel {
+            font-weight: 300;
+            font-size: 12px;
             line-height: 18px;
+            margin-bottom: 25px;
+
+            .number {
+                font-weight: 600;
+                line-height: 21px;
+                margin-bottom: 5px;
+            }
+
+            button {
+                margin-top: 5px;
+                font-size: 10px;
+                color: white;
+                background-color: rgba($color: #000000, $alpha: 0);
+                text-decoration: underline;
+            }
+        }
+
+        &__mail {
+            margin-bottom: 25px;
+            font-weight: 300;
+            font-size: 12px;
+
+            a {
+                font-weight: 600;
+                line-height: 18px;
+            }
+        }
+
+        &__cards {
+            img {
+                margin-right: 5px;
+            }
         }
     }
-    &__cards{
-        img{
+}
+
+@media(max-width:1200px) {
+    .footer {
+        margin-top: 71px;
+        margin-bottom: 71px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .about {
+        flex: 1;
+        min-width: 45%;
+        margin-right: 10px;
+
+    }
+
+    .menuContainer {
+        display: flex;
+        min-width: 45%;
+
+        .menu {
+            margin-right: 10%;
+        }
+    }
+
+    .contactsContainer {
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .download {
+            margin-right: 17%;
+
+        }
+
+        .contacts {
+            min-width: 45%;
+        }
+    }
+}
+
+@media(max-width:600px) {
+    .footer {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .about {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        min-width: 100%;
+        margin-right: 0px;
+
+        &__description {
+            text-align: start;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        &__logo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           width: 100%;
+
+            img {
+                width: 97px;
+            }
+        }
+
+        &__input {
+            width: 98%;
+        }
+
+        &__btn {
+            margin-left: 5px;
+            min-width: 150px;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 19px;
+            background: $interactive-color;
+            border-radius: 79px;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 15px;
+            color: white;
+
+            img {
+                margin-left: 5px;
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+
+    .menuContainer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        min-width: 100%;
+
+        .menu {
+            min-width: 50%;
             margin-right: 5px;
+
+            &__item {
+                font-size: 12px;
+                line-height: 18px;
+            }
+        }
+
+        .category {
+            &__item {
+                font-size: 12px;
+                line-height: 18px;
+            }
+        }
+    }
+
+    .contactsContainer {
+        margin-top: 25px;
+        min-width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .download {
+            order: 2;
+            margin-right: 0;
+
+            &__title {
+                display: none;
+            }
+
+            &__btn {
+                display: none;
+            }
+
+            &__contacts {
+                position: relative;
+                top: 40px;
+                margin-top: 20px;
+                margin-bottom: 15px;
+            }
+
+            &__social {
+                position: relative;
+                top: 40px;
+            }
+
+        }
+
+        .contacts {
+            order: 1;
+            margin-right: 1%;
+            min-width: 0%;
         }
     }
 }

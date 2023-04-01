@@ -76,3 +76,10 @@ $interactive-color: #FFC85E;
     }
 
 }
+
+@media(max-width:600px){
+    .product {
+        width: 290px;
+        padding: 30px 15px 30px 15px;
+    }
+}

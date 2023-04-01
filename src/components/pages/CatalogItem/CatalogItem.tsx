@@ -54,8 +54,6 @@ const CatalogItem: FC = () => {
                     <div className={style.product__btn}>
                         <Button size='big' text='В корзину' img={img_basket} />
                     </div>
-                </div>
-                <div className={style.product__client}>
                     <div className={style.product__share}>
                         <img src={img_share} alt="share" />
                     </div>
