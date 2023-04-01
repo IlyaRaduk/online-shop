@@ -2,8 +2,13 @@ import style from './Catalog.module.scss';
 import { FC } from "react";
 import Aside from './Aside/Aside';
 import Products from './Products/Products';
+import { useAppDisaptch, useAppSelector } from '../../../hooks/redux';
+
 
 const Сatalog: FC = () => {
+    const { } = useAppSelector((state => state.catalogSlice));
+    const dispatch = useAppDisaptch();
+
     return (
         <main>
             <div className={style.catalog}>

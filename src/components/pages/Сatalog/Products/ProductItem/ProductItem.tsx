@@ -5,15 +5,19 @@ import img_basket from './../../../../../assets/img/basket2.svg';
 import { IProduct } from '../../../../../models/IProduct';
 import img_bottle from './../../../../../assets/img/bottle.svg';
 import img_bag from './../../../../../assets/img/bag.svg';
+import { useNavigate } from 'react-router-dom';
 
 interface IProductItemProps {
     product: IProduct,
 }
 
 const ProductItem: FC<IProductItemProps> = ({ product }) => {
+    
+    const navigate = useNavigate();
+
     return (
         <div className={style.product}>
-            <div className={style.product__img}>
+            <div className={style.product__img} onClick={() => navigate(`/item/${product.barcode}`)}>
                 <img src={product.url} alt="product" />
             </div>
             <div className={style.product__size}>

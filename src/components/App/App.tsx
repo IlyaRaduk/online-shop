@@ -7,6 +7,7 @@ import Catalog from './../pages/Сatalog/Сatalog';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Basket from '../pages/Basket/Basket';
 import CatalogItem from '../pages/CatalogItem/CatalogItem';
+import Download from '../pages/Download/Download';
 
 const App: FC = () => {
   return (
@@ -16,9 +17,10 @@ const App: FC = () => {
         <Navigation />
         <div className={style.main}>
           <Routes>
-            <Route path="/" element={<Catalog />} />
+            <Route path="catalog/" element={<Catalog />} />
             <Route path="/basket" element={<Basket />} />
-            <Route path="/item" element={<CatalogItem />} />
+            <Route path="/item/:id" element={<CatalogItem />} />
+            <Route path="/" element={<Download />} />
             <Route
               path="*"
               element={<Navigate to="/" replace />}

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import style from './CatalogItem.module.scss';
 import { IProduct } from '../../../models/IProduct';
 import img_bag from './../../../assets/img/bag.svg';
@@ -8,20 +8,21 @@ import img_basket from './../../../assets/img/basket2.svg';
 import img_share from './../../../assets/img/share.svg';
 import img_download from './../../../assets/img/download2.svg';
 import img_sort from './../../../assets/img/sort.svg';
+import { useParams } from 'react-router-dom';
+import { useAppDisaptch, useAppSelector } from '../../../hooks/redux';
+import fetchOneProduct from '../../../store/thunkCreators/fetchOneProduct';
 
-const product: IProduct = {
-    url: 'https://content2.onliner.by/catalog/device/header/7030b0bba410041d01c7a40fa3744d78.jpeg',
-    name: 'каневая маска с экстрактом бамбука The Fresh Mask Sheet Bamboo',
-    type: 'bottle',
-    size: '20 мл',
-    barcode: 1,
-    manufacturer: 'Нэфис',
-    brend: 'It’s Skin',
-    description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit aut commodi et asperiores quos aliquam maiores. Impedit ducimus placeat repellat natus nisi quidem tenetur saepe maxime qui quam, dolores in.',
-    price: 38,
-}
 
 const CatalogItem: FC = () => {
+
+    const params = useParams();
+    const {product} = useAppSelector((state => state.productSlice));
+    const dispatch = useAppDisaptch();
+
+    useEffect(() => {
+        dispatch(fetchOneProduct(Number(params.id)))
+    }, [])
+
     return (
         <div className={style.product}>
             <div className={style.product__img}>
