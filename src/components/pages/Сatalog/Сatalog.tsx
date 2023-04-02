@@ -9,7 +9,7 @@ import { IFilterItem } from '../../../models/IProduct';
 
 
 const Сatalog: FC = () => {
-    const { sort, filterType } = useAppSelector((state => state.catalogSlice));
+    const { sort, filterType,currentPage } = useAppSelector((state => state.catalogSlice));
     const dispatch = useAppDisaptch();
 
 
@@ -21,12 +21,12 @@ const Сatalog: FC = () => {
     { type: 'paper', value: 'Бумажная продукция' }]
 
     useEffect(() => {
-        dispatch(fetchAllProducts(sort,filterType));
+        dispatch(fetchAllProducts(sort,filterType,currentPage));
     }, [])
 
     useEffect(() => {
-        dispatch(fetchAllProducts(sort,filterType));
-    }, [sort,filterType])
+        dispatch(fetchAllProducts(sort,filterType,currentPage));
+    }, [sort,filterType,currentPage])
 
     return (
         <main>

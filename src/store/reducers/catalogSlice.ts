@@ -7,6 +7,8 @@ interface ICatalogState {
     error: string,
     sort: string,
     filterType: typeOfCare | null,
+    pagesCount: number,
+    currentPage: number,
 }
 
 const initialState: ICatalogState = {
@@ -15,6 +17,8 @@ const initialState: ICatalogState = {
     error: "",
     sort: 'nameFromBottom',
     filterType: null,
+    pagesCount: 0,
+    currentPage: 1,
 }
 
 export const catalogSlice = createSlice({
@@ -43,7 +47,14 @@ export const catalogSlice = createSlice({
             else {
                 state.filterType = action.payload;
             }
+        },
+        setPagesCount(state, action: PayloadAction<number>) {
+            state.pagesCount = action.payload;
+        },
+        setCurrentPage(state, action: PayloadAction<number>) {
+            state.currentPage = action.payload;
         }
+
     }
 })
 

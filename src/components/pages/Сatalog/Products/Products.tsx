@@ -1,22 +1,42 @@
 import style from './Products.module.scss';
 import { FC } from "react";
-import { IProduct } from './../../../../models/IProduct';
 import ProductItem from './ProductItem/ProductItem';
 import img_left from './../../../../assets/img/left.svg';
 import img_right from './../../../../assets/img/right.svg';
-import { useAppSelector } from '../../../../hooks/redux';
+import { useAppSelector, useAppDisaptch } from '../../../../hooks/redux';
+import { catalogSlice } from '../../../../store/reducers/catalogSlice'; 
 
 
 
 
 const Products: FC = () => {
 
-    const { products } = useAppSelector((state => state.catalogSlice));
+    const { products, pagesCount, currentPage } = useAppSelector((state => state.catalogSlice));
+    const dispatch = useAppDisaptch();
+
+    const pages: JSX.Element[] = createPages(pagesCount);
+
+    function createPages(pages: number): JSX.Element[] {
+        let arr: JSX.Element[] = [];
+        for (let i = 1; i <= pages; i++) {
+            if (i == currentPage) {
+                arr.push(<div onClick={()=>dispatch(catalogSlice.actions.setCurrentPage(i))} className={[style.pages__item, style.active].join(' ')}>
+                    {i}
+                </div>)
+            }
+            else {
+                arr.push(<div onClick={()=>dispatch(catalogSlice.actions.setCurrentPage(i))} className={style.pages__item}>
+                    {i}
+                </div>)
+            }
+        }
+        return arr;
+    }
 
     return (
         <>
             <div className={style.products}>
-                { products.length !==0?
+                {products.length !== 0 ?
                     products.map((el, index) => <div className={style.product} key={index}> <ProductItem product={el} /></div>)
                     : <div>Товар не найден</div>
                 }
@@ -26,15 +46,7 @@ const Products: FC = () => {
                             <img src={img_left} alt="left" />
                         </div>
                         <div className={style.pages__list}>
-                            <div className={[style.pages__item, style.active].join(' ')}>
-                                1
-                            </div>
-                            <div className={style.pages__item}>
-                                2
-                            </div>
-                            <div className={style.pages__item}>
-                                3
-                            </div>
+                            {pages}
                         </div>
                         <div className={style.pages__right}>
                             <img src={img_right} alt="right" />

@@ -3,14 +3,14 @@ import { AppDispatch } from "../store";
 import { IProduct } from './../../models/IProduct';
 import { typeOfCare } from "./../../models/IProduct";
 
-const fetchAllProducts = (sort: string, filtertype: typeOfCare | null) => async (dispatch: AppDispatch) => {
+const fetchAllProducts = (sort: string, filtertype: typeOfCare | null, currentPage: number) => async (dispatch: AppDispatch) => {
     try {
         dispatch(catalogSlice.actions.productsFetching);
         let response = localStorage.getItem("products")
         if (response) {
             let products = JSON.parse(response);
-            if (filtertype){
-                products = products.filter((obj:IProduct) => obj.typeOfCare.includes(filtertype));
+            if (filtertype) {
+                products = products.filter((obj: IProduct) => obj.typeOfCare.includes(filtertype));
             }
             switch (sort) {
                 case 'priceFromTop':
@@ -32,6 +32,8 @@ const fetchAllProducts = (sort: string, filtertype: typeOfCare | null) => async 
                 default:
                     break;
             }
+            dispatch(catalogSlice.actions.setPagesCount(Math.ceil(products.length / 15)));
+            products = products.slice((currentPage - 1) * 15, (currentPage - 1) * 15 + 15);
             dispatch(catalogSlice.actions.productsFetchingSuccess(products));
         };
 
