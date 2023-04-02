@@ -59,6 +59,9 @@ $interactive-color: #FFC85E;
             box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.07);
             border-radius: 10px;
         }
+        .activeFilter{
+            color: $interactive-color;
+        }
     }
 
 }
@@ -137,10 +140,14 @@ $interactive-color: #FFC85E;
                 padding: 0px 0px;
                 margin-bottom: 10px;
                 line-height: 17px;
+
+            
             }
+
         }
     }
     .aside{
         display: none;
     }
 }
+

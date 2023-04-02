@@ -1,4 +1,4 @@
-import { IProduct } from "../../models/IProduct";
+import { IProduct, typeOfCare } from "../../models/IProduct";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface ICatalogState {
@@ -6,6 +6,7 @@ interface ICatalogState {
     isLoading: boolean,
     error: string,
     sort: string,
+    filterType: typeOfCare | null,
 }
 
 const initialState: ICatalogState = {
@@ -13,6 +14,7 @@ const initialState: ICatalogState = {
     isLoading: false,
     error: "",
     sort: 'nameFromBottom',
+    filterType: null,
 }
 
 export const catalogSlice = createSlice({
@@ -33,6 +35,14 @@ export const catalogSlice = createSlice({
         },
         setSortType(state, action: PayloadAction<string>) {
             state.sort = action.payload;
+        },
+        setfilterType(state, action: PayloadAction<typeOfCare>) {
+            if (state.filterType == action.payload) {
+                state.filterType = null;
+            }
+            else {
+                state.filterType = action.payload;
+            }
         }
     }
 })

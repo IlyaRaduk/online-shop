@@ -19,7 +19,9 @@ $interactive-color: #FFC85E;
         display: flex;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
         img {
+            max-height: 100%;
             max-width: 100%;
         }
     }

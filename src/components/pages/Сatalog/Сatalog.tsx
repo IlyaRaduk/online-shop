@@ -5,19 +5,28 @@ import Products from './Products/Products';
 import { useAppDisaptch, useAppSelector } from '../../../hooks/redux';
 import fetchAllProducts from '../../../store/thunkCreators/fetchAllProducts';
 import { catalogSlice } from '../../../store/reducers/catalogSlice';
+import { IFilterItem } from '../../../models/IProduct';
 
 
 const Сatalog: FC = () => {
-    const {sort} = useAppSelector((state => state.catalogSlice));
+    const { sort, filterType } = useAppSelector((state => state.catalogSlice));
     const dispatch = useAppDisaptch();
 
+
+    const filterItems:IFilterItem[] = [{ type: 'body', value: 'Уход за телом' }, { type: 'hands', value: 'Уход за руками' },
+    { type: 'feet', value: 'Уход за ногами' }, { type: 'face', value: 'Уход за лицом' },
+    { type: 'hair', value: 'Уход за волосами' }, { type: 'tan', value: 'Средства для загара' },
+    { type: 'shaving', value: 'Средства для бритья' }, { type: 'present', value: 'Подарочные наборы' },
+    { type: 'hygiene', value: 'Гигиеническая продукция' }, { type: 'oral', value: 'Гигиена полости рта' },
+    { type: 'paper', value: 'Бумажная продукция' }]
+
     useEffect(() => {
-        dispatch(fetchAllProducts(sort));
+        dispatch(fetchAllProducts(sort,filterType));
     }, [])
 
     useEffect(() => {
-        dispatch(fetchAllProducts(sort));
-    }, [sort])
+        dispatch(fetchAllProducts(sort,filterType));
+    }, [sort,filterType])
 
     return (
         <main>
@@ -27,11 +36,11 @@ const Сatalog: FC = () => {
                 </p>
                 <div className={style.catalog__sort} >
                     <label className={style.catalog__label} htmlFor="sort">Сортировка:</label>
-                    <select value={sort} onChange={(e)=> dispatch(catalogSlice.actions.setSortType(e.target.value))} name="sort" id="sort">
-                        <option  value="priceFromTop">по убыванию цены</option>
-                        <option  value="priceFromBottom">по возрастанию цены</option>
-                        <option  value="nameFromBottom">по названию</option>
-                        <option  value="nameFromTop">по названию с конца</option>
+                    <select value={sort} onChange={(e) => dispatch(catalogSlice.actions.setSortType(e.target.value))} name="sort" id="sort">
+                        <option value="priceFromTop">по убыванию цены</option>
+                        <option value="priceFromBottom">по возрастанию цены</option>
+                        <option value="nameFromBottom">по названию</option>
+                        <option value="nameFromTop">по названию с конца</option>
                     </select>
                 </div>
                 <div className={style.catalog__prop}>
@@ -39,17 +48,12 @@ const Сatalog: FC = () => {
                 </div>
                 <div className={style.filter}>
                     <ul className={style.filter__list}>
-                        <li className={style.filter__item}>Уход за телом</li>
-                        <li className={style.filter__item}>Уход за руками</li>
-                        <li className={style.filter__item}>Уход за ногами</li>
-                        <li className={style.filter__item}>Уход за лицом</li>
-                        <li className={style.filter__item}>Уход за волосами</li>
-                        <li className={style.filter__item}>Средства для загара</li>
-                        <li className={style.filter__item}>Средства для бритья</li>
-                        <li className={style.filter__item}>Подарочные наборы</li>
-                        <li className={style.filter__item}>Гигиеническая продукция</li>
-                        <li className={style.filter__item}>Гигиена полости рта</li>
-                        <li className={style.filter__item}>Бумажная продукция</li>
+                        {filterItems.map((el, index) => {
+                            if (el.type === filterType) { return <li onClick={()=>dispatch(catalogSlice.actions.setfilterType(el.type))} key={index} className={[style.filter__item, style.activeFilter].join(' ')}>{el.value}</li> }
+                            else {
+                                return <li onClick={()=>dispatch(catalogSlice.actions.setfilterType(el.type))} key={index} className={style.filter__item}>{el.value}</li>
+                            }
+                        })}
                     </ul>
                 </div>
             </div>

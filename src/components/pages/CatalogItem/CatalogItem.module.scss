@@ -14,8 +14,11 @@ $interactive-color: #FFC85E;
         display: flex;
         justify-content: center;
         align-items: start;
-
-        img {}
+        overflow: hidden;
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
     }
 
     &__text {

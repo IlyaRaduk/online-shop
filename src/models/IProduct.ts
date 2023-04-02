@@ -1,4 +1,9 @@
-type typeOfCare = 'body'| 'hands';
+export type typeOfCare = 'body'| 'hands' | 'feet'| 'face' | 'hair' | 'tan' | 'shaving' | 'present' | 'hygiene' | 'oral' |'paper';
+
+export interface IFilterItem {
+    value:string;
+    type:typeOfCare;
+}
 
 export interface IProduct {
     url: string,

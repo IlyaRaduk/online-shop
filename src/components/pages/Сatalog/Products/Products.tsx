@@ -16,8 +16,9 @@ const Products: FC = () => {
     return (
         <>
             <div className={style.products}>
-                {
+                { products.length !==0?
                     products.map((el, index) => <div className={style.product} key={index}> <ProductItem product={el} /></div>)
+                    : <div>Товар не найден</div>
                 }
                 <div>
                     <div className={style.pages}>

@@ -4,14 +4,6 @@ $interactive-color: #FFC85E;
 
 .filter {
 
-    &__title {
-        color: $primary-color;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-        text-transform: uppercase;
-        margin-bottom: 15px;
-    }
 
     &__list {
         color:$secondary-color;
@@ -23,5 +15,9 @@ $interactive-color: #FFC85E;
     &__item {
         cursor: pointer;
         margin-bottom: 10px;
+    }
+
+    .activeFilter{
+        color:$interactive-color;
     }
 }
