@@ -1,21 +1,25 @@
 import { FC, useEffect } from "react";
 import { useAppDisaptch, useAppSelector } from '../../../hooks/redux';
-import fetchProducts from '../../../store/thunkCreators/fetchProducts';
 import { useNavigate } from "react-router-dom";
+import fetchInitProducts from "../../../store/thunkCreators/fetchInitProducts";
 
 const Download: FC = () => {
-    const { isLoading } = useAppSelector((state => state.catalogSlice));
+    const { products } = useAppSelector((state => state.catalogSlice));
     const dispatch = useAppDisaptch();
     const navigate = useNavigate();
 
     useEffect(() => {
-        dispatch(fetchProducts())
+        const load = async  ()=> {
+            await dispatch(fetchInitProducts());
+            navigate(`/catalog`);
+        };
+        load();
     }, [])
 
     return (
         <>
-            {isLoading ? <div>Загрузка...</div> :
-                navigate(`/catalog`)
+            {products.length===0 ? <div>Загрузка...</div> :
+            null
             }
         </>
     )

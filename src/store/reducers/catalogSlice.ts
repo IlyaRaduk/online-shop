@@ -5,12 +5,14 @@ interface ICatalogState {
     products: IProduct[],
     isLoading: boolean,
     error: string,
+    sort: string,
 }
 
 const initialState: ICatalogState = {
     products: [],
     isLoading: false,
     error: "",
+    sort: 'nameFromBottom',
 }
 
 export const catalogSlice = createSlice({
@@ -29,6 +31,9 @@ export const catalogSlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
+        setSortType(state, action: PayloadAction<string>) {
+            state.sort = action.payload;
+        }
     }
 })
 

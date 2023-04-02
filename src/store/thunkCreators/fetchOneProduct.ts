@@ -1,14 +1,15 @@
-import axios from "axios";
 import { IProduct } from "../../models/IProduct";
 import { AppDispatch } from "../store";
-import {productSlice} from "../reducers/productSlice";
+import { productSlice } from "../reducers/productSlice";
 
-const fetchOneProduct = (id:number) => async (dispatch: AppDispatch) => {
+const fetchOneProduct = (id: number) => async (dispatch: AppDispatch) => {
     try {
         dispatch(productSlice.actions.productsFetching);
-        const response = localStorage.getItem("products")
-        console.log(response);
-        // dispatch(productSlice.actions.productsFetchingSuccess(response)[id]));
+        let response = localStorage.getItem("products")
+        if (response) {
+            let product = JSON.parse(response).find((el: IProduct) => el.barcode == id);
+            dispatch(productSlice.actions.productsFetchingSuccess(product));
+        };
 
     } catch (e) {
         dispatch(productSlice.actions.productsFetchingError('Ошибка'));

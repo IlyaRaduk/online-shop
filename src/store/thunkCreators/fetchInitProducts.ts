@@ -3,7 +3,7 @@ import { IProduct } from "../../models/IProduct";
 import {catalogSlice} from "../reducers/catalogSlice";
 import { AppDispatch } from "../store";
 
-const fetchNotes = () => async (dispatch: AppDispatch) => {
+const fetchInitProducts = () => async (dispatch: AppDispatch) => {
     try {
         dispatch(catalogSlice.actions.productsFetching);
         const response = await axios.get<IProduct[]>('https://json-server-online-shop-vunxnyt73-llya-raduk-mailru.vercel.app/products');
@@ -14,4 +14,4 @@ const fetchNotes = () => async (dispatch: AppDispatch) => {
         dispatch(catalogSlice.actions.productsFetchingError('Ошибка'));
     }
 }
-export default fetchNotes;
+export default fetchInitProducts;

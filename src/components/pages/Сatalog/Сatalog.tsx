@@ -1,13 +1,23 @@
 import style from './Catalog.module.scss';
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import Aside from './Aside/Aside';
 import Products from './Products/Products';
 import { useAppDisaptch, useAppSelector } from '../../../hooks/redux';
+import fetchAllProducts from '../../../store/thunkCreators/fetchAllProducts';
+import { catalogSlice } from '../../../store/reducers/catalogSlice';
 
 
 const Сatalog: FC = () => {
-    const { } = useAppSelector((state => state.catalogSlice));
+    const {sort} = useAppSelector((state => state.catalogSlice));
     const dispatch = useAppDisaptch();
+
+    useEffect(() => {
+        dispatch(fetchAllProducts(sort));
+    }, [])
+
+    useEffect(() => {
+        dispatch(fetchAllProducts(sort));
+    }, [sort])
 
     return (
         <main>
@@ -17,11 +27,11 @@ const Сatalog: FC = () => {
                 </p>
                 <div className={style.catalog__sort} >
                     <label className={style.catalog__label} htmlFor="sort">Сортировка:</label>
-                    <select name="sort" id="sort">
-                        <option className="" value="1">по убыванию цены</option>
-                        <option className="" value="1">по возрастанию цены</option>
-                        <option selected className="" value="1">по названию</option>
-                        <option className="" value="1">по названию с конца</option>
+                    <select value={sort} onChange={(e)=> dispatch(catalogSlice.actions.setSortType(e.target.value))} name="sort" id="sort">
+                        <option  value="priceFromTop">по убыванию цены</option>
+                        <option  value="priceFromBottom">по возрастанию цены</option>
+                        <option  value="nameFromBottom">по названию</option>
+                        <option  value="nameFromTop">по названию с конца</option>
                     </select>
                 </div>
                 <div className={style.catalog__prop}>
@@ -49,7 +59,6 @@ const Сatalog: FC = () => {
                 </div>
                 <Products />
             </div>
-
         </main>
     )
 }

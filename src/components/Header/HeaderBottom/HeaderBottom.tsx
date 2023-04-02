@@ -10,9 +10,11 @@ import img_search_mob from './../../../assets/img/search_mob.svg';
 import img_operator from './../../../assets/img/operator.png';
 import img_download from './../../../assets/img/download.svg';
 import img_cart from './../../../assets/img/cart.svg';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderBottom: FC = () => {
 
+    const navigate = useNavigate();
     const handleChange = (value: string) => {
 
     }
@@ -29,7 +31,7 @@ const HeaderBottom: FC = () => {
                     <div className={style.logotipe}>
                         <img src={img_logotip} alt="logotip" />
                     </div>
-                    <div className={style.btn}>
+                    <div className={style.btn} onClick={()=>{ navigate(`/catalog`)}}>
                         <Button size='big' text='Каталог' img={img_catalog} />
                     </div>
                     <div className={style.input}>
@@ -54,7 +56,7 @@ const HeaderBottom: FC = () => {
                     <div className={style.btn}>
                         <Button size='big' text='Прайс-лист' img={img_download} />
                     </div>
-                    <div className={style.cart}>
+                    <div className={style.cart} onClick={()=>{ navigate(`/basket`)}}>
                         <div className={style.cart__img}>
                             <img src={img_cart} alt="cart" />
                             <div className={style.cart__count}>
@@ -73,7 +75,7 @@ const HeaderBottom: FC = () => {
 
                 </div>
                 <div className={style.mobile__btn}>
-                    <button>
+                    <button onClick={()=>{ navigate(`/catalog`)}}>
                         <img src={img_catalog_mob} alt="catalog" />
                         <p>Каталог</p>
                     </button>

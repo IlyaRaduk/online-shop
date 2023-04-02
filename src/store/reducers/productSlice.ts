@@ -16,7 +16,7 @@ const initialProduct: IProduct = {
     brend: '',
     description: '',
     price: 0,
-
+    typeOfCare: [],
 }
 
 const initialState: ICatalogState = {

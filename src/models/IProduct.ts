@@ -1,3 +1,5 @@
+type typeOfCare = 'body'| 'hands';
+
 export interface IProduct {
     url: string,
     name: string,
@@ -8,4 +10,5 @@ export interface IProduct {
     brend: string,
     description: string,
     price:number,
+    typeOfCare: typeOfCare[];
 }
