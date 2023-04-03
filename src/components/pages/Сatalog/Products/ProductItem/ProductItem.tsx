@@ -12,7 +12,7 @@ interface IProductItemProps {
 }
 
 const ProductItem: FC<IProductItemProps> = ({ product }) => {
-    
+
     const navigate = useNavigate();
 
     return (
@@ -42,7 +42,9 @@ const ProductItem: FC<IProductItemProps> = ({ product }) => {
                 <div className={style.product__price}>
                     <span>{product.price}</span>₸
                 </div>
-                <Button size='normal' text='В корзину' img={img_basket} />
+                <div>
+                    <Button size='normal' text='В корзину' img={img_basket} />
+                </div>
             </div>
         </div>
     )

@@ -20,12 +20,12 @@ const Products: FC = () => {
         let arr: JSX.Element[] = [];
         for (let i = 1; i <= pages; i++) {
             if (i == currentPage) {
-                arr.push(<div onClick={()=>dispatch(catalogSlice.actions.setCurrentPage(i))} className={[style.pages__item, style.active].join(' ')}>
+                arr.push(<div key={i} onClick={()=>dispatch(catalogSlice.actions.setCurrentPage(i))} className={[style.pages__item, style.active].join(' ')}>
                     {i}
                 </div>)
             }
             else {
-                arr.push(<div onClick={()=>dispatch(catalogSlice.actions.setCurrentPage(i))} className={style.pages__item}>
+                arr.push(<div  key={i} onClick={()=>dispatch(catalogSlice.actions.setCurrentPage(i))} className={style.pages__item}>
                     {i}
                 </div>)
             }

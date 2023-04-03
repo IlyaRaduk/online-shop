@@ -4,9 +4,9 @@ $interactive-color: #FFC85E;
 
 .aside {
     width: 238px;
-
     &__title {
         display: flex;
+        justify-content: space-between;
         align-items: center;
         color: $primary-color;
         font-weight: 500;
@@ -14,7 +14,7 @@ $interactive-color: #FFC85E;
         line-height: 24px;
         text-transform: uppercase;
         button{
-            margin-left: 15px;
+            margin-right: 15px;
             display: none;
             justify-content: center;
             align-items: center;
@@ -24,6 +24,12 @@ $interactive-color: #FFC85E;
             border-radius: 50%;
             transform: rotate(270deg);
         }
+    }
+    &__closed{
+        display: block;
+    }
+    &__open{
+        display: block;
     }
 
     &__price {
@@ -44,8 +50,12 @@ $interactive-color: #FFC85E;
         margin-top: 25px;
         margin-bottom: 40px;
     }
+    &__btn{
+        flex:1;
+    }
 
 }
+
 
 @media(max-width:600px) {
 
@@ -53,7 +63,12 @@ $interactive-color: #FFC85E;
         min-width: 100%;
         display: flex;
         flex-direction: column;
-
+        &__closed{
+            display: none;
+        }
+        &__open{
+            display: block;
+        }
 
         &__filter {
             display: none;

@@ -3,14 +3,30 @@ import { AppDispatch } from "../store";
 import { IProduct } from './../../models/IProduct';
 import { typeOfCare } from "./../../models/IProduct";
 
-const fetchAllProducts = (sort: string, filtertype: typeOfCare | null, currentPage: number) => async (dispatch: AppDispatch) => {
+
+
+const fetchAllProductsWithFilters = (sort: string, filtertype: typeOfCare | null, 
+    currentPage: number, startPriceFilter: number | null, endPriceFilter: number | null,
+    filterBrends:string[]) => async (dispatch: AppDispatch) => {
     try {
         dispatch(catalogSlice.actions.productsFetching);
+        
         let response = localStorage.getItem("products")
         if (response) {
-            let products = JSON.parse(response);
+            let products:IProduct[] = JSON.parse(response);
+            const brends = [...new Set(products.flatMap((product:IProduct)=> product.brend))];
+            dispatch(catalogSlice.actions.setBrendList(brends));
             if (filtertype) {
-                products = products.filter((obj: IProduct) => obj.typeOfCare.includes(filtertype));
+                products = products.filter((product: IProduct) => product.typeOfCare.includes(filtertype));
+            }
+            if (startPriceFilter) {
+                products = products.filter((product: IProduct) => product.price >= startPriceFilter);
+            }
+            if (endPriceFilter) {
+                products = products.filter((product: IProduct) => product.price <= endPriceFilter);
+            }
+            if(filterBrends.length!==0){
+                products = products.filter((product: IProduct) => filterBrends.includes(product.brend));
             }
             switch (sort) {
                 case 'priceFromTop':
@@ -41,4 +57,4 @@ const fetchAllProducts = (sort: string, filtertype: typeOfCare | null, currentPa
         dispatch(catalogSlice.actions.productsFetchingError('Ошибка'));
     }
 }
-export default fetchAllProducts;
+export default fetchAllProductsWithFilters;

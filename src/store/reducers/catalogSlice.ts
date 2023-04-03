@@ -5,20 +5,32 @@ interface ICatalogState {
     products: IProduct[],
     isLoading: boolean,
     error: string,
+    mobileMenuActive: boolean,
     sort: string,
     filterType: typeOfCare | null,
     pagesCount: number,
     currentPage: number,
+    startPriceFilter: number | null,
+    endPriceFilter: number | null,
+    brendsList: string[],
+    filterBrends: string[],
+    searchBrends:string,
 }
 
 const initialState: ICatalogState = {
     products: [],
     isLoading: false,
     error: "",
+    mobileMenuActive: false,
     sort: 'nameFromBottom',
     filterType: null,
     pagesCount: 0,
     currentPage: 1,
+    startPriceFilter: null,
+    endPriceFilter: null,
+    brendsList: [],
+    filterBrends: [],
+    searchBrends:'',
 }
 
 export const catalogSlice = createSlice({
@@ -53,7 +65,35 @@ export const catalogSlice = createSlice({
         },
         setCurrentPage(state, action: PayloadAction<number>) {
             state.currentPage = action.payload;
-        }
+        },
+        setStartPriceFilter(state, action: PayloadAction<number>) {
+            state.startPriceFilter = action.payload;
+        },
+        setEndPriceFilter(state, action: PayloadAction<number>) {
+            state.endPriceFilter = action.payload;
+        },
+        removeAllFilter(state) {
+            state.startPriceFilter = null;
+            state.endPriceFilter = null;
+            state.filterBrends = [];
+            state.searchBrends='';
+        },
+        setBrendList(state, action: PayloadAction<string[]>) {
+            state.brendsList = action.payload;
+        },
+        setFilterBrends(state, action: PayloadAction<string>) {
+            if (state.filterBrends.includes(action.payload)) {
+                state.filterBrends = state.filterBrends.filter(brend => brend !== action.payload);
+            } else {
+                state.filterBrends.push(action.payload);
+            }
+        },
+        setSearchBrends(state, action: PayloadAction<string>) {
+            state.searchBrends = action.payload;
+        },
+        toggleMobileMenu(state) {
+            state.mobileMenuActive = !state.mobileMenuActive;
+        },
 
     }
 })
