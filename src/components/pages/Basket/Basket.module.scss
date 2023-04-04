@@ -13,10 +13,13 @@ $interactive-color: #FFC85E;
         text-transform: uppercase;
         margin-bottom: 50px;
     }
-
+    &__empty{
+        margin: 50px;
+    }
     .product {
         padding: 50px 0px;
         border-top: 1px dashed rgba(63, 78, 101, 0.3);
+        
     }
 
     &__order {

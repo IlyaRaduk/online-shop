@@ -2,17 +2,19 @@ import style from './ProductItem.module.scss';
 import { FC } from "react";
 import Button from '../../../../common/Button/Button';
 import img_basket from './../../../../../assets/img/basket2.svg';
-import { IProduct } from '../../../../../models/IProduct';
+import { IProduct } from '../../../../../models/Interface';
 import img_bottle from './../../../../../assets/img/bottle.svg';
 import img_bag from './../../../../../assets/img/bag.svg';
 import { useNavigate } from 'react-router-dom';
+import { basketSlice } from '../../../../../store/reducers/basketSlice';
+import { useAppDisaptch } from '../../../../../hooks/redux';
 
 interface IProductItemProps {
     product: IProduct,
 }
 
 const ProductItem: FC<IProductItemProps> = ({ product }) => {
-
+    const dispatch = useAppDisaptch();
     const navigate = useNavigate();
 
     return (
@@ -42,7 +44,7 @@ const ProductItem: FC<IProductItemProps> = ({ product }) => {
                 <div className={style.product__price}>
                     <span>{product.price}</span>₸
                 </div>
-                <div>
+                <div onClick={()=>dispatch(basketSlice.actions.addInBasket(product))}>
                     <Button size='normal' text='В корзину' img={img_basket} />
                 </div>
             </div>

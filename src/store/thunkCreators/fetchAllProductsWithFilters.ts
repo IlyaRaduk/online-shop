@@ -1,7 +1,7 @@
 import { catalogSlice } from "../reducers/catalogSlice";
 import { AppDispatch } from "../store";
-import { IProduct } from './../../models/IProduct';
-import { typeOfCare } from "./../../models/IProduct";
+import { IProduct } from '../../models/Interface';
+import { typeOfCare } from "../../models/Interface";
 
 
 

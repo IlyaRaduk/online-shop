@@ -1,4 +1,4 @@
-import { IProduct, typeOfCare } from "../../models/IProduct";
+import { IProduct, typeOfCare } from "../../models/Interface";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface ICatalogState {
@@ -15,6 +15,7 @@ interface ICatalogState {
     brendsList: string[],
     filterBrends: string[],
     searchBrends:string,
+    isAdmin:boolean,
 }
 
 const initialState: ICatalogState = {
@@ -31,6 +32,7 @@ const initialState: ICatalogState = {
     brendsList: [],
     filterBrends: [],
     searchBrends:'',
+    isAdmin:false,
 }
 
 export const catalogSlice = createSlice({

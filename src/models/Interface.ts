@@ -17,3 +17,7 @@ export interface IProduct {
     price:number,
     typeOfCare: typeOfCare[];
 }
+
+export interface IProductWithCount extends IProduct {
+    count: number,
+}

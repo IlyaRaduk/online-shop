@@ -1,11 +1,6 @@
-import { IProduct } from "../../models/IProduct";
+import { IProduct } from "../../models/Interface";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface ICatalogState {
-    product: IProduct,
-    isLoading: boolean,
-    error: string,
-}
 const initialProduct: IProduct = {
     url: '',
     name: '',
@@ -19,10 +14,18 @@ const initialProduct: IProduct = {
     typeOfCare: [],
 }
 
+interface ICatalogState {
+    product: IProduct,
+    isLoading: boolean,
+    error: string,
+    count: number,
+}
+
 const initialState: ICatalogState = {
     product: initialProduct,
     isLoading: false,
     error: "",
+    count: 1,
 }
 
 export const productSlice = createSlice({
@@ -40,6 +43,14 @@ export const productSlice = createSlice({
         productsFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false;
             state.error = action.payload;
+        },
+        addCount(state) {
+            state.count += 1;
+        },
+        minusCount(state) {
+            if (state.count > 1) {
+                state.count -= 1;
+            }
         },
     }
 })

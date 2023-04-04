@@ -2,17 +2,23 @@ import style from './BasketItem.module.scss';
 import { FC } from "react";
 import img_bottle from './../../../../assets/img/bottle.svg';
 import img_bag from './../../../../assets/img/bag.svg';
-import { IProduct } from '../../../../models/IProduct';
+import { IProductWithCount } from '../../../../models/Interface'; 
 import DeleteBtn from '../../../common/DeleteBtn/DeleteBtn';
+import { useNavigate } from 'react-router-dom';
+import { useAppDisaptch } from '../../../../hooks/redux';
+import {basketSlice} from '../../../../store/reducers/basketSlice';
 
 interface IProductItemProps {
-    product: IProduct,
+    product: IProductWithCount,
 }
 
 const BasketItem: FC<IProductItemProps> = ({ product }) => {
+    const navigate = useNavigate();
+    const dispatch = useAppDisaptch();
+    
     return (
         <div className={style.product}>
-            <div className={style.product__img}>
+            <div onClick={() => navigate(`/item/${product.barcode}`)} className={style.product__img}>
                 <img src={product.url} alt="product" />
             </div>
             <div className={style.product__text}>
@@ -29,20 +35,20 @@ const BasketItem: FC<IProductItemProps> = ({ product }) => {
                     {product.description}
                 </div>
             </div>
-            <div className={style.orderContainer}>
+            <div className={style.orderContainer}>  
                 <div className={style.product__count}>
                     <div className={style.countContainer}>
-                        <button>-</button>
+                        <button onClick={()=>dispatch(basketSlice.actions.removeOneFromBasket(product))}>-</button>
                         <div className={style.number}>
-                            1
+                            {product.count}
                         </div>
-                        <button>+</button>
+                        <button onClick={()=>dispatch(basketSlice.actions.addInBasket(product))}>+</button>
                     </div>
                 </div>
                 <div className={style.product__price}>
-                    {product.price}{' ' + '₸'}
+                    {product.price*product.count}{' ' + '₸'}
                 </div>
-                <div className={style.product__delete}>
+                <div onClick={()=>dispatch(basketSlice.actions.removeFromBasket(product))} className={style.product__delete}>
                     <DeleteBtn />
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { IProduct } from "../../models/IProduct";
+import { IProduct } from "../../models/Interface";
 import { AppDispatch } from "../store";
 import { productSlice } from "../reducers/productSlice";
 

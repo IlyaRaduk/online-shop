@@ -1,5 +1,5 @@
 import { useAppSelector,useAppDisaptch } from '../../../../../hooks/redux';
-import { IFilterItem } from '../../../../../models/IProduct';
+import { IFilterItem } from '../../../../../models/Interface';
 import {catalogSlice} from '../../../../../store/reducers/catalogSlice';
 
 import style from './Filter.module.scss';

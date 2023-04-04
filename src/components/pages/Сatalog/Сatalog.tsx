@@ -5,7 +5,7 @@ import Products from './Products/Products';
 import { useAppDisaptch, useAppSelector } from '../../../hooks/redux';
 import fetchAllProductsWithFilters from '../../../store/thunkCreators/fetchAllProductsWithFilters';
 import { catalogSlice } from '../../../store/reducers/catalogSlice';
-import { IFilterItem } from '../../../models/IProduct';
+import { IFilterItem } from '../../../models/Interface';
 
 
 const Сatalog: FC = () => {

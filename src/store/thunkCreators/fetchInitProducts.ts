@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IProduct } from "../../models/IProduct";
+import { IProduct } from "../../models/Interface";
 import {catalogSlice} from "../reducers/catalogSlice";
 import { AppDispatch } from "../store";
 
