@@ -61,7 +61,7 @@ const HeaderBottom: FC = () => {
                     <div className={style.btn}>
                         <Button size='big' text='Прайс-лист' img={img_download} />
                     </div>
-                    <div className={style.cart} onClick={() => { navigate(`/online-shop/basket/basket`) }}>
+                    <div className={style.cart} onClick={() => { navigate(`/online-shop/basket`) }}>
                         <div className={style.cart__img}>
                             <img src={img_cart} alt="cart" />
                             <div className={style.cart__count}>

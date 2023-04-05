@@ -19,7 +19,7 @@ const App: FC = () => {
           <Routes>
             {/* <Route path="/" element={<Download />} /> */}
             <Route path="/" element={<Catalog />} /> 
-            <Route path="/basket" element={<Basket />} />
+            <Route path="online-shop/basket" element={<Basket />} />
             <Route path="/item/:id" element={<CatalogItem />} />
             {/* <Route
               path="*"

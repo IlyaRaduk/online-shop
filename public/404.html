@@ -2,12 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Page Not Found</title>
+    <title>404 Page Not Found</title>
   </head>
   <body>
     <script>
-      const url = window.location.href.replace(/\/$/, '');
-      window.location.replace(url);
+      const url = window.location.href;
+      const urlPathname = window.location.pathname;
+      const urlHash = window.location.hash;
+      const baseUrl = url.replace(urlPathname + urlHash, '');
+      const redirectUrl = baseUrl + '/index.html#' + urlHash;
+
+      window.location.replace(redirectUrl);
     </script>
   </body>
 </html>
