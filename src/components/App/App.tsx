@@ -17,10 +17,10 @@ const App: FC = () => {
         <Navigation />
         <div className={style.main}>
           <Routes>
+            <Route path="/" element={<Download />} />
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/basket" element={<Basket />} />
             <Route path="/item/:id" element={<CatalogItem />} />
-            <Route path="/" element={<Download />} />
             <Route
               path="*"
               element={<Navigate to="/" replace />}
