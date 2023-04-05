@@ -5,7 +5,6 @@ import { modalCreateProductSlice } from '../../../../../store/reducers/modalCrea
 import { filterItems } from '../../../../../models/Interface';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import addProduct from '../../../../../store/thunkCreators/addProduct';
-import { IProduct } from '../../../../../models/Interface';
 import editProduct from '../../../../../store/thunkCreators/editProduct';
 
 const ModalCreateProduct: FC = () => {

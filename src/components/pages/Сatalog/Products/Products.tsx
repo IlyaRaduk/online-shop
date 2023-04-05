@@ -44,7 +44,7 @@ const Products: FC = () => {
 
             <div className={style.products}>
                 {isAdmin ? <div className={style.products__create}>
-                    <div onClick={() => { dispatch(modalCreateProductSlice.actions.onModalCreateProduct({type:'add',product:null})) }} className={style.btn}>
+                    <div onClick={() => { dispatch(modalCreateProductSlice.actions.onModalCreateProduct({type:'add',product:null})) }} className={style.btnAdd}>
                         <Button size={'big'} text={'Добавить товар'} img='' />
                     </div>
                 </div>

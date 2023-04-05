@@ -10,8 +10,10 @@ $interactive-color: #FFC85E;
     &__create{
         width: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        .btn{
+        align-items: center;
+        .btnAdd{
             width: 90%;
             max-width: 380px;
         }
