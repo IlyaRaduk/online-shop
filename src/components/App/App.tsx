@@ -17,14 +17,14 @@ const App: FC = () => {
         <Navigation />
         <div className={style.main}>
           <Routes>
-            <Route path="online-shop/" element={<Download />} />
-            <Route path="online-shop/catalog" element={<Catalog />} /> 
-            <Route path="online-shop/basket" element={<Basket />} />
-            <Route path="online-shop/item/:id" element={<CatalogItem />} />
-            <Route
+            {/* <Route path="/" element={<Download />} /> */}
+            <Route path="/catalog" element={<Catalog />} /> 
+            <Route path="/basket" element={<Basket />} />
+            <Route path="/item/:id" element={<CatalogItem />} />
+            {/* <Route
               path="*"
               element={<Navigate to="/" replace />}
-            />
+            /> */}
           </Routes>
         </div>
       </div>
