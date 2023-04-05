@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/online-shop/static/css/main.37907acf.css",
-    "main.js": "/online-shop/static/js/main.a7acfeb8.js",
+    "main.js": "/online-shop/static/js/main.770d60d4.js",
     "static/media/Inter-Black.ttf": "/online-shop/static/media/Inter-Black.9e672700f8925f81181f.ttf",
     "static/media/Inter-ExtraBold.ttf": "/online-shop/static/media/Inter-ExtraBold.2a7498d877b6adea54c0.ttf",
     "static/media/Inter-Bold.ttf": "/online-shop/static/media/Inter-Bold.5a1fb798ae4f9a678af1.ttf",
@@ -58,10 +58,10 @@
     "static/media/sort.svg": "/online-shop/static/media/sort.260e242d67fc23d29ab014c3406116d8.svg",
     "static/media/vector.svg": "/online-shop/static/media/vector.5a3ebbf524233ddda3e33d65833a2922.svg",
     "main.37907acf.css.map": "/online-shop/static/css/main.37907acf.css.map",
-    "main.a7acfeb8.js.map": "/online-shop/static/js/main.a7acfeb8.js.map"
+    "main.770d60d4.js.map": "/online-shop/static/js/main.770d60d4.js.map"
   },
   "entrypoints": [
     "static/css/main.37907acf.css",
-    "static/js/main.a7acfeb8.js"
+    "static/js/main.770d60d4.js"
   ]
 }
