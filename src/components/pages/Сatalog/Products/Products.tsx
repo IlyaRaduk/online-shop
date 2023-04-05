@@ -8,6 +8,7 @@ import { catalogSlice } from '../../../../store/reducers/catalogSlice';
 import Button from '../../../common/Button/Button';
 import ModalCreateProduct from './ModalCreateProduct/ModalCreateProduct';
 import { modalCreateProductSlice } from '../../../../store/reducers/modalCreateProductSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -18,6 +19,7 @@ const Products: FC = () => {
     const { isAdmin} = useAppSelector((state => state.catalogSlice));
     const { isModalCreateProduct } = useAppSelector((state => state.modalCreateProductSlice));
     const dispatch = useAppDisaptch();
+    const navigate = useNavigate();
 
     const pages: JSX.Element[] = createPages(pagesCount);
 
@@ -46,6 +48,9 @@ const Products: FC = () => {
                 {isAdmin ? <div className={style.products__create}>
                     <div onClick={() => { dispatch(modalCreateProductSlice.actions.onModalCreateProduct({type:'add',product:null})) }} className={style.btnAdd}>
                         <Button size={'big'} text={'Добавить товар'} img='' />
+                    </div>
+                    <div onClick={() => { navigate(`/`); }} className={style.btnAdd}>
+                        <Button size={'big'} text={'Загрузить товар'} img='' />
                     </div>
                 </div>
                     : null
