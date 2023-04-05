@@ -11,7 +11,7 @@ const Download: FC = () => {
     useEffect(() => {
         const load = async  ()=> {
             await dispatch(fetchInitProducts());
-            navigate(`/catalog`);
+            navigate(`online-shop/catalog`);
         };
         load();
     }, [])
