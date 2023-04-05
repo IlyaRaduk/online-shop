@@ -50,7 +50,7 @@ const editProduct = (product: IProduct, currentPage: number,sort:string) => asyn
             }
             products = products.slice((currentPage - 1) * 15, (currentPage - 1) * 15 + 15);
             dispatch(catalogSlice.actions.productsFetchingSuccess(products));
-            dispatch(modalCreateProductSlice.actions.offModalCreateProduct())
+            dispatch(modalCreateProductSlice.actions.offModalCreateProduct());
         };
     } catch (e) {
         dispatch(catalogSlice.actions.productsFetchingError('Ошибка'));

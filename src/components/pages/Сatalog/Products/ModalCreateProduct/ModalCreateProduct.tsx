@@ -1,5 +1,5 @@
 import style from './ModalCreateProduct.module.scss';
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useAppSelector, useAppDisaptch } from '../../../../../hooks/redux';
 import { modalCreateProductSlice } from '../../../../../store/reducers/modalCreateProductSlice';
 import { filterItems } from '../../../../../models/Interface';
@@ -8,11 +8,17 @@ import addProduct from '../../../../../store/thunkCreators/addProduct';
 import { IProduct } from '../../../../../models/Interface';
 import editProduct from '../../../../../store/thunkCreators/editProduct';
 
-
 const ModalCreateProduct: FC = () => {
     const { isModalCreateProduct, type, productEdit } = useAppSelector((state => state.modalCreateProductSlice));
     const { currentPage, sort } = useAppSelector((state => state.catalogSlice));
     const dispatch = useAppDisaptch();
+
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+          document.body.style.overflow = 'auto';
+        };
+      }, []);
 
     const rootClasses = [style.modal];
     if (isModalCreateProduct) {
@@ -28,6 +34,7 @@ const ModalCreateProduct: FC = () => {
         price: string,
         type: 'bag' | 'bottle',
         size: string,
+        selectedType: string[]
     }
     let initialValues: MyFormValues = {
         name: '',
@@ -38,6 +45,7 @@ const ModalCreateProduct: FC = () => {
         price: '',
         type: 'bag',
         size: '',
+        selectedType: [],
     };
 
     if (type === 'edit') {
@@ -51,6 +59,7 @@ const ModalCreateProduct: FC = () => {
                 price: String(productEdit.price),
                 type: productEdit.type,
                 size: String(parseInt(productEdit.size)),
+                selectedType: productEdit.typeOfCare,
             }
         }
     }
@@ -92,6 +101,9 @@ const ModalCreateProduct: FC = () => {
                         }
                         if (!Number(values.size)) {
                             errors.size = 'Необходимо ввести число';
+                        }
+                        if (!values.selectedType.length) {
+                            errors.selectedType = 'Необходимо выбрать хотябы один тип';
                         }
                         return errors;
                     }}
@@ -142,7 +154,7 @@ const ModalCreateProduct: FC = () => {
                         }
                     }}
                 >
-                    {({ isSubmitting, values }) => (
+                    {({ isSubmitting, values, handleChange }) => (
                         <Form className={style.form}>
                             <Field className={style.modal__inputElement} type="text" name="name" placeholder='Имя товара:' />
                             <ErrorMessage className={style.modal__error} name="name" component="div" />
@@ -179,6 +191,31 @@ const ModalCreateProduct: FC = () => {
                                 <Field className={style.modal__inputElement} type="text" name="size" placeholder='Введите объём в миллилитрах:' />
                             }
                             <ErrorMessage className={style.modal__error} name="size" component="div" />
+                            <div className={style.modal__selectTitle}>
+                                <label  htmlFor="selectedType">Выберите тип  ухода:</label>
+                                <ul>
+                                    {values.selectedType.map((el, index) => {
+                                        return (
+                                            <li key={index}>
+                                                {el}
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                            <Field className={style.modal__select}
+                                as="select"
+                                multiple
+                                name="selectedType"
+                                onChange={handleChange}
+                            >
+                                {filterItems.map((item, index) => (
+                                    <option key={index} value={item.type}>
+                                        {item.value}
+                                    </option>
+                                ))}
+                            </Field>
+                            <ErrorMessage className={style.modal__error} name="selectedType" component="div" />
 
                             <button className={style.modal__submit} type="submit" disabled={isSubmitting}>
                                 Отправить
