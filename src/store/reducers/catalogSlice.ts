@@ -14,8 +14,8 @@ interface ICatalogState {
     endPriceFilter: number | null,
     brendsList: string[],
     filterBrends: string[],
-    searchBrends:string,
-    isAdmin:boolean,
+    searchBrends: string,
+    isAdmin: boolean,
 }
 
 const initialState: ICatalogState = {
@@ -31,8 +31,8 @@ const initialState: ICatalogState = {
     endPriceFilter: null,
     brendsList: [],
     filterBrends: [],
-    searchBrends:'',
-    isAdmin:false,
+    searchBrends: '',
+    isAdmin: false,
 }
 
 export const catalogSlice = createSlice({
@@ -78,7 +78,7 @@ export const catalogSlice = createSlice({
             state.startPriceFilter = null;
             state.endPriceFilter = null;
             state.filterBrends = [];
-            state.searchBrends='';
+            state.searchBrends = '';
         },
         setBrendList(state, action: PayloadAction<string[]>) {
             state.brendsList = action.payload;
@@ -96,7 +96,9 @@ export const catalogSlice = createSlice({
         toggleMobileMenu(state) {
             state.mobileMenuActive = !state.mobileMenuActive;
         },
-
+        toggleAdmin(state) {
+            state.isAdmin = !state.isAdmin;
+        },
     }
 })
 

@@ -11,11 +11,15 @@ import img_operator from './../../../assets/img/operator.png';
 import img_download from './../../../assets/img/download.svg';
 import img_cart from './../../../assets/img/cart.svg';
 import { useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../../../hooks/redux';
+import { useAppDisaptch, useAppSelector } from '../../../hooks/redux';
+import {catalogSlice} from '../../../store/reducers/catalogSlice';
 
 const HeaderBottom: FC = () => {
     const { groupedProductsInBasket,priceInBasket } = useAppSelector((state => state.basketSlice));
+    
     const navigate = useNavigate();
+    const dispatch = useAppDisaptch();
+    
     const handleChange = (value: string) => {
 
     }
@@ -29,7 +33,7 @@ const HeaderBottom: FC = () => {
                         <span></span>
                         <span></span>
                     </div>
-                    <div className={style.logotipe}>
+                    <div onClick={()=>{dispatch(catalogSlice.actions.toggleAdmin())}} className={style.logotipe}>
                         <img src={img_logotip} alt="logotip" />
                     </div>
                     <div className={style.btn} onClick={() => { navigate(`/catalog`) }}>

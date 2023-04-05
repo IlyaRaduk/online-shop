@@ -5,20 +5,12 @@ import Products from './Products/Products';
 import { useAppDisaptch, useAppSelector } from '../../../hooks/redux';
 import fetchAllProductsWithFilters from '../../../store/thunkCreators/fetchAllProductsWithFilters';
 import { catalogSlice } from '../../../store/reducers/catalogSlice';
-import { IFilterItem } from '../../../models/Interface';
-
+import { filterItems } from '../../../models/Interface';
 
 const Сatalog: FC = () => {
     const { sort, filterType, currentPage, startPriceFilter, endPriceFilter, filterBrends, mobileMenuActive } = useAppSelector((state => state.catalogSlice));
     const dispatch = useAppDisaptch();
 
-
-    const filterItems: IFilterItem[] = [{ type: 'body', value: 'Уход за телом' }, { type: 'hands', value: 'Уход за руками' },
-    { type: 'feet', value: 'Уход за ногами' }, { type: 'face', value: 'Уход за лицом' },
-    { type: 'hair', value: 'Уход за волосами' }, { type: 'tan', value: 'Средства для загара' },
-    { type: 'shaving', value: 'Средства для бритья' }, { type: 'present', value: 'Подарочные наборы' },
-    { type: 'hygiene', value: 'Гигиеническая продукция' }, { type: 'oral', value: 'Гигиена полости рта' },
-    { type: 'paper', value: 'Бумажная продукция' }]
 
     useEffect(() => {
         dispatch(fetchAllProductsWithFilters(sort, filterType, currentPage, startPriceFilter, endPriceFilter, filterBrends));
