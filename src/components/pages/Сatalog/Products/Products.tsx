@@ -9,6 +9,7 @@ import Button from '../../../common/Button/Button';
 import ModalCreateProduct from './ModalCreateProduct/ModalCreateProduct';
 import { modalCreateProductSlice } from '../../../../store/reducers/modalCreateProductSlice';
 import { useNavigate } from 'react-router-dom';
+import fetchInitProducts from '../../../../store/thunkCreators/fetchInitProducts';
 
 
 
@@ -49,7 +50,7 @@ const Products: FC = () => {
                     <div onClick={() => { dispatch(modalCreateProductSlice.actions.onModalCreateProduct({type:'add',product:null})) }} className={style.btnAdd}>
                         <Button size={'big'} text={'Добавить товар'} img='' />
                     </div>
-                    <div onClick={() => { navigate(`/`); }} className={style.btnAdd}>
+                    <div onClick={() => { dispatch(fetchInitProducts())}} className={style.btnAdd}>
                         <Button size={'big'} text={'Загрузить товар'} img='' />
                     </div>
                 </div>
