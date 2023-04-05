@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/online-shop/static/css/main.87acb497.css",
-    "main.js": "/online-shop/static/js/main.b1541d1f.js",
+    "main.js": "/online-shop/static/js/main.3731ba18.js",
     "static/media/Inter-Black.ttf": "/online-shop/static/media/Inter-Black.9e672700f8925f81181f.ttf",
     "static/media/Inter-ExtraBold.ttf": "/online-shop/static/media/Inter-ExtraBold.2a7498d877b6adea54c0.ttf",
     "static/media/Inter-Bold.ttf": "/online-shop/static/media/Inter-Bold.5a1fb798ae4f9a678af1.ttf",
@@ -46,9 +46,9 @@
     "static/media/location_icon.svg": "/online-shop/static/media/location_icon.205123e38262c7b921aaf8c64eab1a78.svg",
     "static/media/catalog_mob.svg": "/online-shop/static/media/catalog_mob.1928cbd9b07950bf3fa58978c02fd5d0.svg",
     "static/media/catalog.svg": "/online-shop/static/media/catalog.4756189f8fb2f4cdf0b38c581c7033d8.svg",
+    "index.html": "/online-shop/index.html",
     "static/media/search_mob.svg": "/online-shop/static/media/search_mob.ae27b3063e1fa019fb33934605e204ac.svg",
     "static/media/search.svg": "/online-shop/static/media/search.ea9ef697bfe0d73dc61f4d8bcff567cc.svg",
-    "index.html": "/online-shop/index.html",
     "static/media/cross.svg": "/online-shop/static/media/cross.2001e956d267bc9b1a2349ee0a8ee521.svg",
     "static/media/download2.svg": "/online-shop/static/media/download2.11d3238f37bdb4da06fd293c2ccf77e4.svg",
     "static/media/download.svg": "/online-shop/static/media/download.5e96ff0389bda2c469106116f0a58afd.svg",
@@ -58,10 +58,10 @@
     "static/media/sort.svg": "/online-shop/static/media/sort.260e242d67fc23d29ab014c3406116d8.svg",
     "static/media/vector.svg": "/online-shop/static/media/vector.5a3ebbf524233ddda3e33d65833a2922.svg",
     "main.87acb497.css.map": "/online-shop/static/css/main.87acb497.css.map",
-    "main.b1541d1f.js.map": "/online-shop/static/js/main.b1541d1f.js.map"
+    "main.3731ba18.js.map": "/online-shop/static/js/main.3731ba18.js.map"
   },
   "entrypoints": [
     "static/css/main.87acb497.css",
-    "static/js/main.b1541d1f.js"
+    "static/js/main.3731ba18.js"
   ]
 }

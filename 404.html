@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>404 Page Not Found</title>
-  </head>
-  <body>
-    <script>
-      const url = window.location.href;
-      const urlPathname = window.location.pathname;
-      const urlHash = window.location.hash;
-      const baseUrl = url.replace(urlPathname + urlHash, '');
-      const redirectUrl = baseUrl + '/index.html#' + urlHash;
+<html lang="en">
 
-      window.location.replace(redirectUrl);
+<head>
+    <meta charset="utf-8" />
+    <title>React App</title>
+    <script type="text/javascript">
+        var pathsegmentsToKeep = 1;
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1 + pathsegmentsToKeep).join('/') + '/?/' +
+            l.pathname.slice(1).split('/').slice(pathsegmentsToKeep).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        );
     </script>
-  </body>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
 </html>
