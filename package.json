@@ -2,7 +2,7 @@
   "name": "online-shop",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://IlyaRaduk.github.io/online-shop",
+  "homepage": "https://IlyaRaduk.github.io/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
