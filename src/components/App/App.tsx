@@ -18,7 +18,7 @@ const App: FC = () => {
         <div className={style.main}>
           <Routes>
             {/* <Route path="/" element={<Download />} /> */}
-            <Route path="/catalog" element={<Catalog />} /> 
+            <Route path="/" element={<Catalog />} /> 
             <Route path="/basket" element={<Basket />} />
             <Route path="/item/:id" element={<CatalogItem />} />
             {/* <Route

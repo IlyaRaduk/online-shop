@@ -36,7 +36,7 @@ const HeaderBottom: FC = () => {
                     <div onClick={()=>{dispatch(catalogSlice.actions.toggleAdmin())}} className={style.logotipe}>
                         <img src={img_logotip} alt="logotip" />
                     </div>
-                    <div className={style.btn} onClick={() => { navigate(`/catalog`) }}>
+                    <div className={style.btn} onClick={() => { navigate(`/`) }}>
                         <Button size='big' text='Каталог' img={img_catalog} />
                     </div>
                     <div className={style.input}>
